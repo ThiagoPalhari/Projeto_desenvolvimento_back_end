@@ -1,0 +1,3 @@
+using Lanchonetes.Application.DTOs.Requests; using Lanchonetes.Application.Interfaces;
+namespace Lanchonetes.Infrastructure.Services;
+public class LoyaltyService : ILoyaltyService { public Task<object> GetAccountAsync(Guid customerId) => throw new NotImplementedException(); public Task AddPointsAsync(Guid customerId, int points, string? reference) => throw new NotImplementedException(); public Task RedeemAsync(Guid customerId, RedeemPointsRequest request) => throw new NotImplementedException(); public Task<IReadOnlyCollection<object>> GetTransactionsAsync(Guid customerId) => throw new NotImplementedException(); }

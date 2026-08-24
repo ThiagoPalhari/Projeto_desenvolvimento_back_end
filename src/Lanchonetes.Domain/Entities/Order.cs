@@ -1,0 +1,3 @@
+using Lanchonetes.Domain.Enums;
+namespace Lanchonetes.Domain.Entities;
+public class Order { public Guid Id { get; set; } public Guid CustomerId { get; set; } public User? Customer { get; set; } public Guid UnitId { get; set; } public Unit? Unit { get; set; } public OrderChannel Channel { get; set; } public OrderStatus Status { get; set; } = OrderStatus.CREATED; public decimal Subtotal { get; set; } public decimal Discount { get; set; } public decimal Total { get; set; } public DateTime CreatedAt { get; set; } = DateTime.UtcNow; public DateTime? UpdatedAt { get; set; } public ICollection<OrderItem> Items { get; set; } = new List<OrderItem>(); public Payment? Payment { get; set; } }

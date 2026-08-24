@@ -1,0 +1,11 @@
+using System.Text; using Lanchonetes.Api.Middleware; using Lanchonetes.Application.Interfaces; using Lanchonetes.Infrastructure.Data; using Lanchonetes.Infrastructure.Security; using Lanchonetes.Infrastructure.Services; using Microsoft.AspNetCore.Authentication.JwtBearer; using Microsoft.EntityFrameworkCore; using Microsoft.IdentityModel.Tokens;
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddControllers(); builder.Services.AddEndpointsApiExplorer(); builder.Services.AddSwaggerGen();
+builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("Jwt"));
+builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddScoped<PasswordHasher>(); builder.Services.AddScoped<IUserService, UserService>(); builder.Services.AddScoped<IRoleService, RoleService>(); builder.Services.AddScoped<IUnitService, UnitService>(); builder.Services.AddScoped<IProductService, ProductService>(); builder.Services.AddScoped<IOrderService, OrderService>(); builder.Services.AddScoped<IStockService, StockService>(); builder.Services.AddScoped<ILoyaltyService, LoyaltyService>(); builder.Services.AddScoped<IConsentService, ConsentService>(); builder.Services.AddScoped<IPromotionService, PromotionService>(); builder.Services.AddScoped<IPaymentService, PaymentService>(); builder.Services.AddScoped<IAuditService, AuditService>(); builder.Services.AddScoped<IReportService, ReportService>();
+var jwt = builder.Configuration.GetSection("Jwt").Get<JwtOptions>() ?? new JwtOptions();
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options => { options.TokenValidationParameters = new TokenValidationParameters { ValidateIssuer = true, ValidateAudience = true, ValidateLifetime = true, ValidateIssuerSigningKey = true, ValidIssuer = jwt.Issuer, ValidAudience = jwt.Audience, IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwt.Key)) }; });
+builder.Services.AddAuthorization();
+var app = builder.Build();
+app.UseMiddleware<ExceptionHandlingMiddleware>(); app.UseSwagger(); app.UseSwaggerUI(); app.UseHttpsRedirection(); app.UseAuthentication(); app.UseAuthorization(); app.MapControllers(); app.Run();

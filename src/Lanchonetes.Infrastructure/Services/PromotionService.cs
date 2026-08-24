@@ -1,0 +1,3 @@
+using Lanchonetes.Application.DTOs.Requests; using Lanchonetes.Application.Interfaces;
+namespace Lanchonetes.Infrastructure.Services;
+public class PromotionService : IPromotionService { public Task CreateAsync(CreatePromotionRequest request) => throw new NotImplementedException(); public Task UpdateAsync(Guid id, UpdatePromotionRequest request) => throw new NotImplementedException(); public Task DeleteAsync(Guid id) => throw new NotImplementedException(); public Task<IReadOnlyCollection<object>> GetAllAsync() => throw new NotImplementedException(); public Task<object> CalculateAsync(Guid customerId, Guid orderId) => throw new NotImplementedException(); }

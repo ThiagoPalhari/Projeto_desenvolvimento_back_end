@@ -1,0 +1,3 @@
+using Lanchonetes.Application.DTOs.Requests; using Lanchonetes.Application.Interfaces;
+namespace Lanchonetes.Infrastructure.Services;
+public class UnitService : IUnitService { public Task CreateAsync(CreateUnitRequest request) => throw new NotImplementedException(); public Task UpdateAsync(Guid id, UpdateUnitRequest request) => throw new NotImplementedException(); public Task DeleteAsync(Guid id) => throw new NotImplementedException(); public Task<object> GetAsync(Guid id) => throw new NotImplementedException(); public Task<IReadOnlyCollection<object>> GetAllAsync() => throw new NotImplementedException(); }
