@@ -1,0 +1,12 @@
+/workspaces/Projeto_desenvolvimento_back_end/src/Lanchonetes.Domain/bin/Debug/net8.0/Lanchonetes.Domain.deps.json
+/workspaces/Projeto_desenvolvimento_back_end/src/Lanchonetes.Domain/bin/Debug/net8.0/Lanchonetes.Domain.dll
+/workspaces/Projeto_desenvolvimento_back_end/src/Lanchonetes.Domain/bin/Debug/net8.0/Lanchonetes.Domain.pdb
+/workspaces/Projeto_desenvolvimento_back_end/src/Lanchonetes.Domain/obj/Debug/net8.0/Lanchonetes.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/Projeto_desenvolvimento_back_end/src/Lanchonetes.Domain/obj/Debug/net8.0/Lanchonetes.Domain.AssemblyInfoInputs.cache
+/workspaces/Projeto_desenvolvimento_back_end/src/Lanchonetes.Domain/obj/Debug/net8.0/Lanchonetes.Domain.AssemblyInfo.cs
+/workspaces/Projeto_desenvolvimento_back_end/src/Lanchonetes.Domain/obj/Debug/net8.0/Lanchonetes.Domain.csproj.CoreCompileInputs.cache
+/workspaces/Projeto_desenvolvimento_back_end/src/Lanchonetes.Domain/obj/Debug/net8.0/Lanchonetes.Domain.sourcelink.json
+/workspaces/Projeto_desenvolvimento_back_end/src/Lanchonetes.Domain/obj/Debug/net8.0/Lanchonetes.Domain.dll
+/workspaces/Projeto_desenvolvimento_back_end/src/Lanchonetes.Domain/obj/Debug/net8.0/refint/Lanchonetes.Domain.dll
+/workspaces/Projeto_desenvolvimento_back_end/src/Lanchonetes.Domain/obj/Debug/net8.0/Lanchonetes.Domain.pdb
+/workspaces/Projeto_desenvolvimento_back_end/src/Lanchonetes.Domain/obj/Debug/net8.0/ref/Lanchonetes.Domain.dll

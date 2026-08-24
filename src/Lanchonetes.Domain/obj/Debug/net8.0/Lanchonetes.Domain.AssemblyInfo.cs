@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Lanchonetes.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8f6c50f9ea393f80dc6e9ed557805f5b76f7af2d")]
 [assembly: System.Reflection.AssemblyProductAttribute("Lanchonetes.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Lanchonetes.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

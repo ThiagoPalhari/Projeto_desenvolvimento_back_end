@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Lanchonetes.Api/Lanchonetes.Api.csproj" />
+    <Project Path="src/Lanchonetes.Application/Lanchonetes.Application.csproj" />
+    <Project Path="src/Lanchonetes.Domain/Lanchonetes.Domain.csproj" />
+    <Project Path="src/Lanchonetes.Infrastructure/Lanchonetes.Infrastructure.csproj" />
+  </Folder>
+</Solution>

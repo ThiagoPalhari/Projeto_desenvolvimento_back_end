@@ -1,0 +1,16 @@
+/workspaces/Projeto_desenvolvimento_back_end/src/Lanchonetes.Application/bin/Debug/net8.0/Lanchonetes.Application.deps.json
+/workspaces/Projeto_desenvolvimento_back_end/src/Lanchonetes.Application/bin/Debug/net8.0/Lanchonetes.Application.dll
+/workspaces/Projeto_desenvolvimento_back_end/src/Lanchonetes.Application/bin/Debug/net8.0/Lanchonetes.Application.pdb
+/workspaces/Projeto_desenvolvimento_back_end/src/Lanchonetes.Application/bin/Debug/net8.0/Lanchonetes.Domain.dll
+/workspaces/Projeto_desenvolvimento_back_end/src/Lanchonetes.Application/bin/Debug/net8.0/Lanchonetes.Domain.pdb
+/workspaces/Projeto_desenvolvimento_back_end/src/Lanchonetes.Application/obj/Debug/net8.0/Lanchonetes.Application.csproj.AssemblyReference.cache
+/workspaces/Projeto_desenvolvimento_back_end/src/Lanchonetes.Application/obj/Debug/net8.0/Lanchonetes.Application.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/Projeto_desenvolvimento_back_end/src/Lanchonetes.Application/obj/Debug/net8.0/Lanchonetes.Application.AssemblyInfoInputs.cache
+/workspaces/Projeto_desenvolvimento_back_end/src/Lanchonetes.Application/obj/Debug/net8.0/Lanchonetes.Application.AssemblyInfo.cs
+/workspaces/Projeto_desenvolvimento_back_end/src/Lanchonetes.Application/obj/Debug/net8.0/Lanchonetes.Application.csproj.CoreCompileInputs.cache
+/workspaces/Projeto_desenvolvimento_back_end/src/Lanchonetes.Application/obj/Debug/net8.0/Lanchonetes.Application.sourcelink.json
+/workspaces/Projeto_desenvolvimento_back_end/src/Lanchonetes.Application/obj/Debug/net8.0/Lanchone.1C4F3261.Up2Date
+/workspaces/Projeto_desenvolvimento_back_end/src/Lanchonetes.Application/obj/Debug/net8.0/Lanchonetes.Application.dll
+/workspaces/Projeto_desenvolvimento_back_end/src/Lanchonetes.Application/obj/Debug/net8.0/refint/Lanchonetes.Application.dll
+/workspaces/Projeto_desenvolvimento_back_end/src/Lanchonetes.Application/obj/Debug/net8.0/Lanchonetes.Application.pdb
+/workspaces/Projeto_desenvolvimento_back_end/src/Lanchonetes.Application/obj/Debug/net8.0/ref/Lanchonetes.Application.dll

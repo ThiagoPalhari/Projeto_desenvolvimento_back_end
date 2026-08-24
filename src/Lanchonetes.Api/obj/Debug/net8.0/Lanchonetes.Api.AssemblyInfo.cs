@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Lanchonetes.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8f6c50f9ea393f80dc6e9ed557805f5b76f7af2d")]
 [assembly: System.Reflection.AssemblyProductAttribute("Lanchonetes.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Lanchonetes.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

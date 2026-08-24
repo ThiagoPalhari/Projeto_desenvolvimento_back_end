@@ -20,5 +20,3 @@ dotnet restore
 dotnet build
 dotnet run --project src/Lanchonetes.Api
 ```
-
-Os endpoints foram criados como esqueleto. As implementações dos serviços estão com `NotImplementedException` para serem desenvolvidas.

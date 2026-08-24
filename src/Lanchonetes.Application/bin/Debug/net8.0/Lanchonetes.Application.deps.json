@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Lanchonetes.Application/1.0.0": {
+        "dependencies": {
+          "Lanchonetes.Domain": "1.0.0"
+        },
+        "runtime": {
+          "Lanchonetes.Application.dll": {}
+        }
+      },
+      "Lanchonetes.Domain/1.0.0": {
+        "runtime": {
+          "Lanchonetes.Domain.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Lanchonetes.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Lanchonetes.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
