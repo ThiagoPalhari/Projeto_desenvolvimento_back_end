@@ -1,4 +1,24 @@
-using Lanchonetes.Application.DTOs.Requests; using Lanchonetes.Application.Interfaces; using Lanchonetes.Domain.Enums; using Microsoft.AspNetCore.Authorization; using Microsoft.AspNetCore.Mvc;
+using Lanchonetes.Application.DTOs.Requests;
+using Lanchonetes.Application.Interfaces;
+using Lanchonetes.Domain.Enums;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+
 namespace Lanchonetes.Api.Controllers;
-[ApiController][Route("api/orders")][Authorize]
-public class OrdersController(IOrderService service) : ControllerBase { [HttpPost] public async Task<IActionResult> Create(CreateOrderRequest request) => StatusCode(201, await service.CreateAsync(request)); [HttpGet] public async Task<IActionResult> GetAll([FromQuery] OrderChannel? channel) => Ok(await service.GetAllAsync(channel)); [HttpGet("{id:guid}")] public async Task<IActionResult> Get(Guid id) => Ok(await service.GetAsync(id)); [HttpPatch("{id:guid}/status")] public async Task<IActionResult> Status(Guid id, UpdateOrderStatusRequest request) => Ok(await service.UpdateStatusAsync(id, request)); [HttpPost("{id:guid}/cancel")] public async Task<IActionResult> Cancel(Guid id, CancelOrderRequest request) { await service.CancelAsync(id, request); return NoContent(); } }
+
+[ApiController]
+[Route("api/orders")]
+[Authorize]
+public class OrdersController(IOrderService service) : ControllerBase
+{
+    [HttpPost] public async Task<IActionResult> Create(CreateOrderRequest request) => StatusCode(201, await service.CreateAsync(request));
+    [HttpGet] public async Task<IActionResult> GetAll([FromQuery] OrderChannel? channel) => Ok(await service.GetAllAsync(channel));
+    [HttpGet("{id:guid}")] public async Task<IActionResult> Get(Guid id) => Ok(await service.GetAsync(id));
+    [HttpPatch("{id:guid}/status")] public async Task<IActionResult> Status(Guid id, UpdateOrderStatusRequest request) => Ok(await service.UpdateStatusAsync(id, request));
+    [HttpPost("{id:guid}/cancel")]
+    public async Task<IActionResult> Cancel(Guid id, CancelOrderRequest request)
+    {
+        await service.CancelAsync(id, request);
+        return NoContent();
+    }
+}

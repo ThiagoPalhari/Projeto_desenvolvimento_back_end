@@ -1,33 +1,39 @@
 {
   "format": 1,
   "restore": {
-    "/workspaces/Projeto_desenvolvimento_back_end/src/Lanchonetes.Application/Lanchonetes.Application.csproj": {}
+    "C:\\Users\\Thiago\\Documents\\Faculdade\\Lanchonetes.Api\\src\\Lanchonetes.Application\\Lanchonetes.Application.csproj": {}
   },
   "projects": {
-    "/workspaces/Projeto_desenvolvimento_back_end/src/Lanchonetes.Application/Lanchonetes.Application.csproj": {
+    "C:\\Users\\Thiago\\Documents\\Faculdade\\Lanchonetes.Api\\src\\Lanchonetes.Application\\Lanchonetes.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/workspaces/Projeto_desenvolvimento_back_end/src/Lanchonetes.Application/Lanchonetes.Application.csproj",
+        "projectUniqueName": "C:\\Users\\Thiago\\Documents\\Faculdade\\Lanchonetes.Api\\src\\Lanchonetes.Application\\Lanchonetes.Application.csproj",
         "projectName": "Lanchonetes.Application",
-        "projectPath": "/workspaces/Projeto_desenvolvimento_back_end/src/Lanchonetes.Application/Lanchonetes.Application.csproj",
-        "packagesPath": "/home/codespace/.nuget/packages/",
-        "outputPath": "/workspaces/Projeto_desenvolvimento_back_end/src/Lanchonetes.Application/obj/",
+        "projectPath": "C:\\Users\\Thiago\\Documents\\Faculdade\\Lanchonetes.Api\\src\\Lanchonetes.Application\\Lanchonetes.Application.csproj",
+        "packagesPath": "C:\\Users\\Thiago\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Thiago\\Documents\\Faculdade\\Lanchonetes.Api\\src\\Lanchonetes.Application\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/home/codespace/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Thiago\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/workspaces/Projeto_desenvolvimento_back_end/src/Lanchonetes.Domain/Lanchonetes.Domain.csproj": {
-                "projectPath": "/workspaces/Projeto_desenvolvimento_back_end/src/Lanchonetes.Domain/Lanchonetes.Domain.csproj"
+              "C:\\Users\\Thiago\\Documents\\Faculdade\\Lanchonetes.Api\\src\\Lanchonetes.Domain\\Lanchonetes.Domain.csproj": {
+                "projectPath": "C:\\Users\\Thiago\\Documents\\Faculdade\\Lanchonetes.Api\\src\\Lanchonetes.Domain\\Lanchonetes.Domain.csproj"
               }
             }
           }
@@ -42,11 +48,17 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "10.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.Extensions.Identity.Core": {
+              "target": "Package",
+              "version": "[8.0.19, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -58,41 +70,37 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.25, 8.0.25]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.25, 8.0.25]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/10.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/workspaces/Projeto_desenvolvimento_back_end/src/Lanchonetes.Domain/Lanchonetes.Domain.csproj": {
+    "C:\\Users\\Thiago\\Documents\\Faculdade\\Lanchonetes.Api\\src\\Lanchonetes.Domain\\Lanchonetes.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/workspaces/Projeto_desenvolvimento_back_end/src/Lanchonetes.Domain/Lanchonetes.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Thiago\\Documents\\Faculdade\\Lanchonetes.Api\\src\\Lanchonetes.Domain\\Lanchonetes.Domain.csproj",
         "projectName": "Lanchonetes.Domain",
-        "projectPath": "/workspaces/Projeto_desenvolvimento_back_end/src/Lanchonetes.Domain/Lanchonetes.Domain.csproj",
-        "packagesPath": "/home/codespace/.nuget/packages/",
-        "outputPath": "/workspaces/Projeto_desenvolvimento_back_end/src/Lanchonetes.Domain/obj/",
+        "projectPath": "C:\\Users\\Thiago\\Documents\\Faculdade\\Lanchonetes.Api\\src\\Lanchonetes.Domain\\Lanchonetes.Domain.csproj",
+        "packagesPath": "C:\\Users\\Thiago\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Thiago\\Documents\\Faculdade\\Lanchonetes.Api\\src\\Lanchonetes.Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/home/codespace/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Thiago\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -111,7 +119,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "10.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -127,22 +135,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.25, 8.0.25]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.25, 8.0.25]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/10.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

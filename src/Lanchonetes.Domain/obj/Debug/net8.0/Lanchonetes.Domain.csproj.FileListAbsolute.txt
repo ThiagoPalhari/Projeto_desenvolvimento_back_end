@@ -10,3 +10,15 @@
 /workspaces/Projeto_desenvolvimento_back_end/src/Lanchonetes.Domain/obj/Debug/net8.0/refint/Lanchonetes.Domain.dll
 /workspaces/Projeto_desenvolvimento_back_end/src/Lanchonetes.Domain/obj/Debug/net8.0/Lanchonetes.Domain.pdb
 /workspaces/Projeto_desenvolvimento_back_end/src/Lanchonetes.Domain/obj/Debug/net8.0/ref/Lanchonetes.Domain.dll
+C:\Users\Thiago\Documents\Faculdade\Lanchonetes.Api\src\Lanchonetes.Domain\bin\Debug\net8.0\Lanchonetes.Domain.deps.json
+C:\Users\Thiago\Documents\Faculdade\Lanchonetes.Api\src\Lanchonetes.Domain\bin\Debug\net8.0\Lanchonetes.Domain.dll
+C:\Users\Thiago\Documents\Faculdade\Lanchonetes.Api\src\Lanchonetes.Domain\bin\Debug\net8.0\Lanchonetes.Domain.pdb
+C:\Users\Thiago\Documents\Faculdade\Lanchonetes.Api\src\Lanchonetes.Domain\obj\Debug\net8.0\Lanchonetes.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Thiago\Documents\Faculdade\Lanchonetes.Api\src\Lanchonetes.Domain\obj\Debug\net8.0\Lanchonetes.Domain.AssemblyInfoInputs.cache
+C:\Users\Thiago\Documents\Faculdade\Lanchonetes.Api\src\Lanchonetes.Domain\obj\Debug\net8.0\Lanchonetes.Domain.AssemblyInfo.cs
+C:\Users\Thiago\Documents\Faculdade\Lanchonetes.Api\src\Lanchonetes.Domain\obj\Debug\net8.0\Lanchonetes.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Thiago\Documents\Faculdade\Lanchonetes.Api\src\Lanchonetes.Domain\obj\Debug\net8.0\Lanchonetes.Domain.sourcelink.json
+C:\Users\Thiago\Documents\Faculdade\Lanchonetes.Api\src\Lanchonetes.Domain\obj\Debug\net8.0\Lanchonetes.Domain.dll
+C:\Users\Thiago\Documents\Faculdade\Lanchonetes.Api\src\Lanchonetes.Domain\obj\Debug\net8.0\refint\Lanchonetes.Domain.dll
+C:\Users\Thiago\Documents\Faculdade\Lanchonetes.Api\src\Lanchonetes.Domain\obj\Debug\net8.0\Lanchonetes.Domain.pdb
+C:\Users\Thiago\Documents\Faculdade\Lanchonetes.Api\src\Lanchonetes.Domain\obj\Debug\net8.0\ref\Lanchonetes.Domain.dll

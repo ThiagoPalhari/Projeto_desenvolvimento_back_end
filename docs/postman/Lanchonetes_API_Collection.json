@@ -1,0 +1,626 @@
+{
+  "info": {
+    "name": "Lanchonetes API - Casos de teste",
+    "description": "Coleção de testes para a API de gestão de lanchonetes, organizada por recursos e com variáveis para ambiente, token JWT e IDs gerados durante execução.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_postman_id": "lanchonetes-api-test-suite-2026"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:5080", "type": "string" },
+    { "key": "token", "value": "", "type": "string" },
+    { "key": "adminEmail", "value": "admin@lanchonetes.com", "type": "string" },
+    { "key": "customerEmail", "value": "cliente@lanchonetes.com", "type": "string" },
+    { "key": "unitId", "value": "", "type": "string" },
+    { "key": "productId", "value": "", "type": "string" },
+    { "key": "orderId", "value": "", "type": "string" },
+    { "key": "paymentId", "value": "", "type": "string" },
+    { "key": "customerId", "value": "", "type": "string" }
+  ],
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "01. Register admin",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Administrador\",\n  \"email\": \"{{adminEmail}}\",\n  \"password\": \"Admin@123\",\n  \"roleId\": \"7d6d6fd2-6c2d-4f4d-8afd-9a2f9d7d5e51\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/register",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "register"]
+            }
+          }
+        },
+        {
+          "name": "02. Register customer",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Cliente Teste\",\n  \"email\": \"{{customerEmail}}\",\n  \"password\": \"Cliente@123\",\n  \"roleId\": \"c0a4d7a8-5f73-4538-9d3d-0d5c93fd6fb7\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/register",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "register"]
+            }
+          }
+        },
+        {
+          "name": "03. Login admin",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const json = pm.response.json();",
+                  "if (json && json.accessToken) {",
+                  "  pm.collectionVariables.set('token', json.accessToken);",
+                  "}",
+                  "if (json && json.id) {",
+                  "  pm.collectionVariables.set('customerId', json.id);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{adminEmail}}\",\n  \"password\": \"Admin@123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "login"]
+            }
+          }
+        },
+        {
+          "name": "04. Login customer",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const json = pm.response.json();",
+                  "if (json && json.id) {",
+                  "  pm.collectionVariables.set('customerId', json.id);",
+                  "}",
+                  "if (json && json.accessToken) {",
+                  "  pm.collectionVariables.set('token', json.accessToken);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{customerEmail}}\",\n  \"password\": \"Cliente@123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "login"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Unidades",
+      "item": [
+        {
+          "name": "05. Create unit",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{token}}", "type": "string" }]
+            },
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Unidade Centro\",\n  \"cnpj\": \"12345678000199\",\n  \"address\": \"Rua das Flores, 100\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/units",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "units"]
+            }
+          }
+        },
+        {
+          "name": "06. List units",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{token}}", "type": "string" }]
+            },
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/units",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "units"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Produtos e Estoque",
+      "item": [
+        {
+          "name": "07. Create product",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const response = pm.response.text();",
+                  "if (response && response.includes('id')) {",
+                  "  const json = pm.response.json();",
+                  "  if (json && json.id) { pm.collectionVariables.set('productId', json.id); }",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{token}}", "type": "string" }]
+            },
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"X-Burger\",\n  \"description\": \"Hambúrguer artesanal com queijo\",\n  \"price\": 29.90\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/products",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "products"]
+            }
+          }
+        },
+        {
+          "name": "08. List products",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{token}}", "type": "string" }]
+            },
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/products",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "products"]
+            }
+          }
+        },
+        {
+          "name": "09. Get menu by unit",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{token}}", "type": "string" }]
+            },
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/products/menu/{{unitId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "products", "menu", "{{unitId}}"]
+            }
+          }
+        },
+        {
+          "name": "10. Set product availability",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{token}}", "type": "string" }]
+            },
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"available\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/products/{{productId}}/units/{{unitId}}/availability",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "products", "{{productId}}", "units", "{{unitId}}", "availability"]
+            }
+          }
+        },
+        {
+          "name": "11. Create stock movement",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{token}}", "type": "string" }]
+            },
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"unitId\": \"{{unitId}}\",\n  \"productId\": \"{{productId}}\",\n  \"type\": \"IN\",\n  \"quantity\": 20,\n  \"reference\": \"Ajuste inicial\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/stock/movements",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "stock", "movements"]
+            }
+          }
+        },
+        {
+          "name": "12. Get stock by unit and product",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{token}}", "type": "string" }]
+            },
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/stock/{{unitId}}/{{productId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "stock", "{{unitId}}", "{{productId}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Pedidos",
+      "item": [
+        {
+          "name": "13. Create order",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const json = pm.response.json();",
+                  "if (json && json.id) { pm.collectionVariables.set('orderId', json.id); }"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{token}}", "type": "string" }]
+            },
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerId\": \"{{customerId}}\",\n  \"unitId\": \"{{unitId}}\",\n  \"channel\": \"ONLINE\",\n  \"items\": [\n    {\n      \"productId\": \"{{productId}}\",\n      \"quantity\": 2\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/orders",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "orders"]
+            }
+          }
+        },
+        {
+          "name": "14. List orders",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{token}}", "type": "string" }]
+            },
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/orders",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "orders"]
+            }
+          }
+        },
+        {
+          "name": "15. Get order by id",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{token}}", "type": "string" }]
+            },
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/orders/{{orderId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "orders", "{{orderId}}"]
+            }
+          }
+        },
+        {
+          "name": "16. Update order status",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{token}}", "type": "string" }]
+            },
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"PREPARING\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/orders/{{orderId}}/status",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "orders", "{{orderId}}", "status"]
+            }
+          }
+        },
+        {
+          "name": "17. Cancel order",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{token}}", "type": "string" }]
+            },
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reason\": \"Cliente solicitou cancelamento\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/orders/{{orderId}}/cancel",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "orders", "{{orderId}}", "cancel"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Pagamentos",
+      "item": [
+        {
+          "name": "18. Process payment",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const json = pm.response.json();",
+                  "if (json && json.id) { pm.collectionVariables.set('paymentId', json.id); }"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{token}}", "type": "string" }]
+            },
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"orderId\": \"{{orderId}}\",\n  \"amount\": 59.80,\n  \"paymentMethod\": \"CREDIT_CARD\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/payments/process",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "payments", "process"]
+            }
+          }
+        },
+        {
+          "name": "19. Get payment",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{token}}", "type": "string" }]
+            },
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/payments/{{paymentId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "payments", "{{paymentId}}"]
+            }
+          }
+        },
+        {
+          "name": "20. Payment callback",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"paymentId\": \"{{paymentId}}\",\n  \"providerTransactionId\": \"SIM-1234567890\",\n  \"status\": \"APPROVED\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/payments/callback",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "payments", "callback"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Consents e Fidelidade",
+      "item": [
+        {
+          "name": "21. Create consent",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{token}}", "type": "string" }]
+            },
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerId\": \"{{customerId}}\",\n  \"purpose\": \"MARKETING\",\n  \"granted\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/consents",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "consents"]
+            }
+          }
+        },
+        {
+          "name": "22. Get customer consents",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{token}}", "type": "string" }]
+            },
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/consents/customer/{{customerId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "consents", "customer", "{{customerId}}"]
+            }
+          }
+        },
+        {
+          "name": "23. Loyalty account",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{token}}", "type": "string" }]
+            },
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/customers/{{customerId}}/loyalty",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "customers", "{{customerId}}", "loyalty"]
+            }
+          }
+        },
+        {
+          "name": "24. Add loyalty points",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{token}}", "type": "string" }]
+            },
+            "method": "POST",
+            "url": {
+              "raw": "{{baseUrl}}/api/customers/{{customerId}}/loyalty/points?points=50&reference=Pedido%20teste",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "customers", "{{customerId}}", "loyalty", "points"],
+              "query": [
+                { "key": "points", "value": "50" },
+                { "key": "reference", "value": "Pedido teste" }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Promoções e Relatórios",
+      "item": [
+        {
+          "name": "25. Create promotion",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{token}}", "type": "string" }]
+            },
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Promoção de aniversário\",\n  \"discountPercentage\": 10,\n  \"startsAt\": \"2026-01-01T00:00:00Z\",\n  \"endsAt\": \"2026-12-31T23:59:59Z\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/promotions",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "promotions"]
+            }
+          }
+        },
+        {
+          "name": "26. Calculate promotion",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{token}}", "type": "string" }]
+            },
+            "method": "POST",
+            "url": {
+              "raw": "{{baseUrl}}/api/promotions/calculate?customerId={{customerId}}&orderId={{orderId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "promotions", "calculate"],
+              "query": [
+                { "key": "customerId", "value": "{{customerId}}" },
+                { "key": "orderId", "value": "{{orderId}}" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "27. Sales report",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{token}}", "type": "string" }]
+            },
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/reports/sales?from=2025-01-01&to=2026-12-31&unitId={{unitId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "reports", "sales"],
+              "query": [
+                { "key": "from", "value": "2025-01-01" },
+                { "key": "to", "value": "2026-12-31" },
+                { "key": "unitId", "value": "{{unitId}}" }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Auditoria",
+      "item": [
+        {
+          "name": "28. Get audit logs",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{token}}", "type": "string" }]
+            },
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/audit?from=2025-01-01&to=2026-12-31",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "audit"],
+              "query": [
+                { "key": "from", "value": "2025-01-01" },
+                { "key": "to", "value": "2026-12-31" }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

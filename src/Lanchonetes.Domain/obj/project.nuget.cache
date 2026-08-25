@@ -1,11 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SsUwEja9M/I=",
+  "dgSpecHash": "EGfzoXoXIRQ=",
   "success": true,
-  "projectFilePath": "/workspaces/Projeto_desenvolvimento_back_end/src/Lanchonetes.Domain/Lanchonetes.Domain.csproj",
-  "expectedPackageFiles": [
-    "/home/codespace/.nuget/packages/microsoft.netcore.app.ref/8.0.25/microsoft.netcore.app.ref.8.0.25.nupkg.sha512",
-    "/home/codespace/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.25/microsoft.aspnetcore.app.ref.8.0.25.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Users\\Thiago\\Documents\\Faculdade\\Lanchonetes.Api\\src\\Lanchonetes.Domain\\Lanchonetes.Domain.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

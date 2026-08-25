@@ -1,4 +1,9 @@
-using Lanchonetes.Application.DTOs.Requests; using Lanchonetes.Application.Interfaces; using Microsoft.AspNetCore.Authorization; using Microsoft.AspNetCore.Mvc;
+using Lanchonetes.Application.DTOs.Requests;
+using Lanchonetes.Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 namespace Lanchonetes.Api.Controllers;
-[ApiController][Route("api/customers/{customerId:guid}/loyalty")][Authorize]
+[ApiController]
+[Route("api/customers/{customerId:guid}/loyalty")]
+[Authorize]
 public class LoyaltyController(ILoyaltyService service) : ControllerBase { [HttpGet] public async Task<IActionResult> Account(Guid customerId) => Ok(await service.GetAccountAsync(customerId)); [HttpGet("transactions")] public async Task<IActionResult> Transactions(Guid customerId) => Ok(await service.GetTransactionsAsync(customerId)); [HttpPost("points")] public async Task<IActionResult> Add(Guid customerId, [FromQuery] int points, [FromQuery] string? reference) { await service.AddPointsAsync(customerId, points, reference); return NoContent(); } [HttpPost("redeem")] public async Task<IActionResult> Redeem(Guid customerId, RedeemPointsRequest request) { await service.RedeemAsync(customerId, request); return NoContent(); } }
